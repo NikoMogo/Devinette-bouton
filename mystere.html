@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="keyboard" />
+    <button id="action">GO</button>
+    <button id="reset">Recommencer</button>
+    <a href="mystere.html">Recommencer</a>
+    <div id="display"></div>
+    <script>
+        let mystere = Math.floor((Math.random() * 100) + 1);
+        
+        console.log(mystere)
+
+        let button = document.getElementById('action')
+        let resetbutton =document.getElementById('reset')
+
+        resetbutton.addEventListener('click',() => {
+            mystere = Math.floor((Math.random() * 100) + 1);
+        console.log(mystere)
+            let monitor = document.getElementById ('display')
+            monitor.innerText = ''
+            let control = document.getElementById('keyboard')
+            control.value =''
+
+        })
+
+        button.addEventListener('click', () => {
+            let control = document.getElementById('keyboard')
+            let proposition = control.value
+
+            let monitor = document.getElementById('display')
+            // proposition = prompt ('Quel est votre chiffre ?');
+
+            if (proposition == mystere) {
+                monitor.innerText = 'Chiffre Trouvé';
+            }
+            else if (proposition > mystere) {
+                monitor.innerText = 'Chiffre trop grand';
+            }
+            else {
+                monitor.innerText = 'Chiffre trop petit'
+            }
+        })
+        
+    
+
+    </script>
+</body>
+
+</html>
